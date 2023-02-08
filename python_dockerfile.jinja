@@ -1,0 +1,10 @@
+FROM python:{{ language.version }}-slim
+
+RUN apt-get update
+RUN apt-get install -y {{ os_dependencies }}
+
+RUN mkdir -p /data/outputs/
+COPY source/ ./
+
+RUN pip install --no-cache-dir --compile -r {{ dependencies_path }}requirements.txt
+CMD {{ run_command }}
