@@ -1,0 +1,9 @@
+FROM docker.io/library/r-base:{{ version }}
+
+RUN apt-get update
+RUN apt-get install -y {{ os_dependencies }}
+
+RUN mkdir -p /data/
+COPY source/ ./
+
+RUN install2.r --error `cat {{ requirements }}`
