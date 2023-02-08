@@ -28,7 +28,7 @@ def main():
 
     ## Call script to clone git repo.
     if config.get("subfolder", False):
-        sp.check_call(["git", "clone", git_url, "/data/clone", "--depth", "1"])
+        sp.check_call(["git", "clone", config["git_url"], "/data/clone", "--depth", "1"])
         shutil.move(f"/data/clone/{config['subfolder']}", "/data/source")
     else:
         sp.check_call(["git", "clone", git_url, "/data/source", "--depth", "1"])
