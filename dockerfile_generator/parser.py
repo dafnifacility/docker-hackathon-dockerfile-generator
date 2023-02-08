@@ -1,6 +1,6 @@
-import yaml
 import os
 
+import yaml
 
 allowed_languages = ['python', 'java', 'C', 'C++']
 
@@ -47,20 +47,12 @@ def parse_os_dependencies_section(model_definition):
     return language_section
 
 
-raw = parse_model_definition(
-    os.path.join(os.path.dirname(__file__), 'model_definition.yml')
-    )
-lang = parse_language_section(raw)
-os_deps = parse_os_dependencies_section(raw)
-os_deps = raw['spec'].get('os_dependencies', None)
+def parse_full()
+    raw = parse_model_definition(
+        os.path.join(os.path.dirname(__file__), 'model_definition.yml')
+        )
+    lang = parse_language_section(raw)
+    os_deps = parse_os_dependencies_section(raw)
+    os_deps = raw['spec'].get('os_dependencies', None)
 
-print (raw)
-
-for k,v in lang:
-    print (k,v)
-print (
-    lang,
-    os_deps
-)
-
-
+    return {"language": lang, "os_deps": os_deps}
