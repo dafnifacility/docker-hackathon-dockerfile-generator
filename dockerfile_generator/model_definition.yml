@@ -1,0 +1,17 @@
+spec:
+  language:
+      python:
+        version: '3.8'
+        dependencies: /path/to/requirements.txt
+        miniconda: false
+      java:
+        version: '11'
+      # cobol:
+      #   version: '231.41.23'
+  # os_dependencies: ['default-jdk']
+  source_code: 
+    url: URL
+    access_token: None
+  
+
+  command: ['python', 'model.py']
