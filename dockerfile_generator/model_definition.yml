@@ -10,8 +10,18 @@ spec:
       #   version: '231.41.23'
   # os_dependencies: ['default-jdk']
   source_code: 
-    url: URL
-    access_token: None
+    # Access to the code will be done by CMake so we can support multiple repos
+    # refer to https://cmake.org/cmake/help/latest/module/ExternalProject.html
+    git:
+      repository: URL
+      tag: origin/main
+      access_token: None
+    url:
+      # simple URL passed
+      url: URL
+      url_MD5: 'md5hash' 
+      # additional parameter can be passed as 
+    # Other repo sources can be SVN, Mercurial, CVS
   
 
   command: ['python', 'model.py']
