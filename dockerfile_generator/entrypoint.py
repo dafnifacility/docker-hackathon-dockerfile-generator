@@ -47,7 +47,8 @@ def main():
         loader=jinja2.PackageLoader("dockerfile_generator", "templates"),
         autoescape=False,
     )
-    template = template_env.get_template(f"{config['language']}.jinja")
+    print(model_config)
+    template = template_env.get_template(f"{model_config['language']}.jinja")
 
     # Render template with vars and write out.
     template.stream(**model_config).dump("/data/Dockerfile")
