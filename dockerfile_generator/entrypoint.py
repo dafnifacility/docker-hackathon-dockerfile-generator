@@ -5,7 +5,7 @@ import subprocess as sp
 
 import jinja2
 
-from . import parser
+from . import parse_model_definition as parser
 
 
 def env_config():
