@@ -32,6 +32,7 @@ def main():
             ["git", "clone", config["git_url"], "/data/clone", "--depth", "1"]
         )
         shutil.move(f"/data/clone/{config['subfolder']}", "/data/source")
+        shutil.rmtree("/data/clone")
     else:
         sp.check_call(
             ["git", "clone", config["git_url"], "/data/source", "--depth", "1"]
@@ -47,7 +48,6 @@ def main():
         loader=jinja2.PackageLoader("dockerfile_generator", "templates"),
         autoescape=False,
     )
-    print(model_config)
     template = template_env.get_template(f"{model_config['language']}.jinja")
 
     # Render template with vars and write out.
